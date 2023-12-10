@@ -4,6 +4,7 @@ import com.example.quinbookpost.dto.CommentDto;
 import com.example.quinbookpost.dto.CommentResponseDto;
 import com.example.quinbookpost.entity.Comment;
 import com.example.quinbookpost.entity.Like;
+import com.example.quinbookpost.repository.CommentCustomRepository;
 import com.example.quinbookpost.repository.CommentRepository;
 import com.example.quinbookpost.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,12 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
-    public boolean getAllCommentForPost(String postId){
-        return true;
-    }
+    @Autowired
+    private CommentCustomRepository commentCustomRepository;
 
-    public boolean removeCommentPost(CommentDto commentDto){
-        return true;
-    }
+//    public boolean removeCommentPost(CommentDto commentDto){
+//        return true;
+//    }
 
     @Override
     public boolean addCommentPost (@RequestBody CommentDto commentDto){
@@ -60,9 +60,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<CommentResponseDto> getCommentByPost(String postId){
-        CommentResponseDto commentResponseDto=new CommentResponseDto();
-        List<CommentResponseDto> comments=commentRepository.findByPostId(postId);
-        commentResponseDto.setDescription();
+    public List<Comment> getCommentByPostId(String postId) {
+        return commentCustomRepository.getAllCommentsForPost(postId);
     }
+
 }

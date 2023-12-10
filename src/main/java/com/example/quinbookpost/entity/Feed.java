@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = Feed.COLLECTION_NAME)
@@ -14,5 +15,5 @@ public class Feed {
     @Id
     private String userId;
 
-    private List<String> postList;
+    private List<String> postList = new ArrayList<>();
 }

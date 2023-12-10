@@ -11,5 +11,4 @@ public class LikeDto {
 
     private String postId;
 
-    private Date likeDate;
 }

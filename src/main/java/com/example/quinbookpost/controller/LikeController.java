@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/like")
+@CrossOrigin
 public class LikeController {
 
     @Autowired
@@ -22,8 +23,8 @@ public class LikeController {
     public void removeLikePost(@RequestParam String userId,@RequestParam String postId){
         likeService.removeLikeById(userId,postId);
     }
-    @GetMapping("/like-count-by-post/{postId}")
-    public long getLikeCountByPostId(@PathVariable String postId) {
+    @GetMapping("/like-count-by-post")
+    public long getLikeCountByPostId(@RequestParam String postId) {
         return likeService.getLikeCountByPostId(postId);
     }
 }

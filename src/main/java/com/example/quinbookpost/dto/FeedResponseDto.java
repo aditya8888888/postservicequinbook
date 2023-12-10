@@ -20,7 +20,7 @@ public class FeedResponseDto {
     private Date createdDate;
     private String caption;
     private String media;
-    private int likeCount;
-    private int commentCount;
+    private long likeCount;
+    private long commentCount;
     private List<CommentResponseDto> commentList = new ArrayList<>();
 }

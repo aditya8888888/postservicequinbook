@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class LikeServiceImpl implements LikeService {
@@ -26,7 +23,7 @@ public class LikeServiceImpl implements LikeService {
     @Override
     public boolean addLikePost(LikeDto likeDto) {
         Like like=new Like();
-        like.setLikeDate(likeDto.getLikeDate());
+        like.setLikeDate(new Date());
         like.setLikeId(UUID.randomUUID().toString());
         like.setUserId(likeDto.getUserId());
         like.setPostId(likeDto.getPostId());

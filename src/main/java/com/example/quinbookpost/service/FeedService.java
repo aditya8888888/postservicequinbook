@@ -12,4 +12,6 @@ public interface FeedService {
 
     Feed addFeed(String userId, String postId);
 
+//    Feed updateFeed(String userId, String postId);
+
 }
