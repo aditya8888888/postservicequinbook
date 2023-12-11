@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/post")
 @CrossOrigin
@@ -32,6 +34,11 @@ public class PostController {
                 : ResponseEntity.notFound().build();  // Return Not Found status if the post is not found
     }
 
+
+    @GetMapping("/get-post-by-userid")
+    public List<Post> getPostByUserId(@RequestParam String userId){
+        return postService.getPostByUserId(userId);
+    }
 
 }
 

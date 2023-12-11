@@ -1,5 +1,6 @@
 package com.example.quinbookpost.repository;
 
+import com.example.quinbookpost.dto.LikeIdResponse;
 import com.example.quinbookpost.dto.PostLikeCount;
 import com.example.quinbookpost.entity.Like;
 import org.springframework.data.mongodb.repository.Aggregation;
@@ -19,7 +20,8 @@ import java.util.Optional;
 @Repository
 public interface LikeRepository extends MongoRepository<Like, String> {
     @Query(value = "{ 'userId' : ?0, 'postId' : ?1 }", fields = "{ 'likeId' : 1}")
-    Optional<String> findLikeIdByUserIdAndPostId(String userId, String postId);
+    Optional<LikeIdResponse> findLikeIdByUserIdAndPostId(String userId, String postId);
+
 
     @Query(value = "{ 'postId' : ?0 }", count = true)
     long countByPostId(String postId);

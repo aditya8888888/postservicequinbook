@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -32,7 +29,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public boolean addCommentPost (@RequestBody CommentDto commentDto){
         Comment comment=new Comment();
-        comment.setCommentDate(commentDto.getCommentDate());
+        comment.setCommentDate(new Date());
         comment.setCommentDescription(commentDto.getCommentDescription());
         comment.setCommentId(UUID.randomUUID().toString());
         comment.setPostId(commentDto.getPostId());

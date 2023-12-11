@@ -91,14 +91,18 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public Feed addFeed(String userId, String postId) {
 
+
+        Optional<Feed> feedOptional = feedRepository.findById(userId);
         Feed feed = new Feed();
-        feed.setUserId(userId);
-        if(feed.getPostList() == null){
+        if(feedOptional.isPresent()){
+            feed = feedOptional.get();
+            feed.getPostList().add(postId);
+        }else{
+            feed = new Feed();
+            feed.setUserId(userId);
             List<String> postList = new ArrayList<>();
             postList.add(postId);
             feed.setPostList(postList);
-        }else {
-            feed.getPostList().add(postId);
         }
         return feedRepository.save(feed);
     }

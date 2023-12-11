@@ -12,9 +12,11 @@ public interface LikeService {
 
     public boolean addLikePost (LikeDto likeDto);
 
-    public void removeLikeById(String userId,String postId);
+    public void removeLikeById(LikeDto likeDto);
 
     public long getLikeCountByPostId(String postId);
+
+    public boolean toggleLike(LikeDto likeDto);
 
 
 }

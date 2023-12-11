@@ -11,7 +11,5 @@ public class CommentDto {
 
     private String postId;
 
-    private Date commentDate;
-
     private String commentDescription;
 }

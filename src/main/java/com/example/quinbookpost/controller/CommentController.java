@@ -26,13 +26,13 @@ public class CommentController {
         commentService.removeCommentById(userId,postId);
     }
 
-    @GetMapping("/comment-count-by-post/{postId}")
-    public long getLikeCountByPostId(@PathVariable String postId) {
+    @GetMapping("/comment-count-by-post")
+    public long getLikeCountByPostId(@RequestParam String postId) {
         return commentService.getCommentCountByPostId(postId);
     }
 
-    @GetMapping("/comment-by-post/{postId}")
-    public List<CommentDto> getCommentByPost(@PathVariable String postId){
-        return  null;
+    @GetMapping("/comment-by-post")
+    public List<Comment> getCommentByPost(@RequestParam String postId){
+        return commentService.getCommentByPostId(postId);
     }
 }
