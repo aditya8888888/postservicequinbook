@@ -1,6 +1,7 @@
 package com.example.quinbookpost.service;
 
 import com.example.quinbookpost.dto.PostDto;
+import com.example.quinbookpost.dto.UserPostResponse;
 import com.example.quinbookpost.entity.Post;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,7 +13,7 @@ public interface PostService {
 
     public PostDto getPostById(@RequestParam String postId);
 
-    public List<Post> getPostByUserId(String userId);
+    public List<UserPostResponse> getPostByUserId(String userId);
 
 
 }

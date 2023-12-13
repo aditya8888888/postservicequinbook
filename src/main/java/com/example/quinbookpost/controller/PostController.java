@@ -1,7 +1,10 @@
 package com.example.quinbookpost.controller;
 
 import com.example.quinbookpost.dto.PostDto;
+import com.example.quinbookpost.dto.UserPostResponse;
+import com.example.quinbookpost.entity.Feed;
 import com.example.quinbookpost.entity.Post;
+import com.example.quinbookpost.repository.FeedRepository;
 import com.example.quinbookpost.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,9 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private FeedRepository feedRepository;
 
     @PostMapping
     public ResponseEntity<Boolean> addPost(@RequestBody PostDto postDto) {
@@ -36,9 +42,11 @@ public class PostController {
 
 
     @GetMapping("/get-post-by-userid")
-    public List<Post> getPostByUserId(@RequestParam String userId){
+    public List<UserPostResponse> getPostByUserId(@RequestParam String userId){
         return postService.getPostByUserId(userId);
     }
+
+
 
 }
 

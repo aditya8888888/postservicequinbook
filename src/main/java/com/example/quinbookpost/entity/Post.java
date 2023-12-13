@@ -16,6 +16,8 @@ public class Post {
 
     private String userId;
 
+    private String userEmail;
+
     private String caption;
 
     private String media;
@@ -24,4 +26,5 @@ public class Post {
 
     private Date createdDate;
 
+//    List<String> likeIds;
 }

@@ -7,4 +7,5 @@ public class CommentResponseDto {
     private String description;
     private String userId;
     private String userName;
+    private String userProfilePic;
 }

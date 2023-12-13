@@ -15,5 +15,5 @@ public class PostDto {
 
     private String mediaType;
 
-    private Date createdDate;
+
 }
